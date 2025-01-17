@@ -2,7 +2,7 @@
 	// New div function
 	function newdiv() {
 		// Select the main element
-		const mainElement = document.getElementById('main-content');
+		const mainElement = document.getElementsByTagName('main')[0];
 
 		// Create a new div element
 		const newDiv = document.createElement('div');
