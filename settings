@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <title>Settings</title>
+        <meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline'; media-src 'self' blob: https://*.googlevideo.com;
+            ">
+        <link href="/youtube.com/shared.css" type="text/css" rel="stylesheet">
+        <link href="/youtube.com/static/light_theme.css" type="text/css" rel="stylesheet">
+        <link href="/youtube.com/static/comments.css" type="text/css" rel="stylesheet">
+        <link href="/youtube.com/static/favicon.ico" type="image/x-icon" rel="icon">
+        <link title="Youtube local" href="/youtube.com/opensearch.xml" rel="search" type="application/opensearchdescription+xml">
+        <style type="text/css">
+
+    .settings-form {
+        margin: auto;
+        max-width: 600px;
+        margin-top:10px;
+        padding: 10px;
+        display: block;
+        background-color: var(--interface-color);
+    }
+        .settings-list{
+            list-style: none;
+            padding: 0px;
+        }
+            .setting-item{
+                margin-bottom: 10px;
+                padding: 5px;
+            }
+                .setting-item label{
+                    display: inline-block;
+                    width: 250px;
+                }
+    @media (max-width:650px){
+        h2{
+            text-align: center;
+        }
+        .setting-item{
+        }
+            .setting-item label{
+                display: block; /* make the setting input wrap */
+                margin-bottom: 5px;
+            }
+    }
+
+        </style>
+
+        
+
+        
+        
+    </head>
+    <body>
+        <header>
+                <form id="site-search" action="/youtube.com/results">
+                    <a href="/youtube.com" id="home-link">Home</a>
+                    <input type="search" name="search_query" class="search-box" value=""
+                         placeholder="Type to search...">
+                    <button type="submit" value="Search" class="button search-button">Search</button>
+                    <label for="filter-dropdown-toggle-cbox" class="filter-dropdown-toggle-button button">Filter</label>
+                    <input id="filter-dropdown-toggle-cbox" type="checkbox" hidden>
+                    <div class="filter-dropdown-content">
+                        <h3>Sort by</h3>
+                        <input type="radio" id="sort_relevance" name="sort" value="0">
+                        <label for="sort_relevance">Relevance</label>
+
+                        <input type="radio" id="sort_upload_date" name="sort" value="2">
+                        <label for="sort_upload_date">Upload date</label>
+
+                        <input type="radio" id="sort_view_count" name="sort" value="3">
+                        <label for="sort_view_count">View count</label>
+
+                        <input type="radio" id="sort_rating" name="sort" value="1">
+                        <label for="sort_rating">Rating</label>
+
+
+                        <h3>Upload date</h3>
+                        <input type="radio" id="time_any" name="time" value="0">
+                        <label for="time_any">Any</label>
+
+                        <input type="radio" id="time_last_hour" name="time" value="1">
+                        <label for="time_last_hour">Last hour</label>
+
+                        <input type="radio" id="time_today" name="time" value="2">
+                        <label for="time_today">Today</label>
+
+                        <input type="radio" id="time_this_week" name="time" value="3">
+                        <label for="time_this_week">This week</label>
+
+                        <input type="radio" id="time_this_month" name="time" value="4">
+                        <label for="time_this_month">This month</label>
+
+                        <input type="radio" id="time_this_year" name="time" value="5">
+                        <label for="time_this_year">This year</label>
+
+                        <h3>Type</h3>
+                        <input type="radio" id="type_any" name="type" value="0">
+                        <label for="type_any">Any</label>
+
+                        <input type="radio" id="type_video" name="type" value="1">
+                        <label for="type_video">Video</label>
+
+                        <input type="radio" id="type_channel" name="type" value="2">
+                        <label for="type_channel">Channel</label>
+
+                        <input type="radio" id="type_playlist" name="type" value="3">
+                        <label for="type_playlist">Playlist</label>
+
+                        <input type="radio" id="type_movie" name="type" value="4">
+                        <label for="type_movie">Movie</label>
+
+                        <input type="radio" id="type_show" name="type" value="5">
+                        <label for="type_show">Show</label>
+
+
+                        <h3>Duration</h3>
+                        <input type="radio" id="duration_any" name="duration" value="0">
+                        <label for="duration_any">Any</label>
+
+                        <input type="radio" id="duration_short" name="duration" value="1">
+                        <label for="duration_short">Short (&lt; 4 minutes)</label>
+
+                        <input type="radio" id="duration_long" name="duration" value="2">
+                        <label for="duration_long">Long (&gt; 20 minutes)</label>
+
+                    </div>
+                    
+                </form>
+
+            
+        </header>
+        <main>
+
+    <form method="POST" class="settings-form">
+        
+            <h2>Network</h2>
+            <ul class="settings-list">
+            
+                
+                    <li class="setting-item">
+                        
+                            <label for="setting_route_tor">Route Tor</label>
+                        
+
+                        
+                            
+                                <select id="setting_route_tor" name="route_tor">
+                                    
+                                        <option value="0" selected>Off</option>
+                                    
+                                        <option value="1" >On, except video</option>
+                                    
+                                        <option value="2" >On, including video (see warnings)</option>
+                                    
+                                </select>
+                            
+                        
+                    </li>
+                
+            
+                
+                    <li class="setting-item">
+                        
+                            <label for="setting_tor_port">Tor port</label>
+                        
+
+                        
+                            
+                                <input type="number" id="setting_tor_port" name="tor_port" value="9150" step="1">
+                            
+                        
+                    </li>
+                
+            
+                
+                    <li class="setting-item">
+                        
+                            <label for="setting_tor_control_port">Tor control port</label>
+                        
+
+                        
+                            
+                                <input type="number" id="setting_tor_control_port" name="tor_control_port" value="9151" step="1">
+                            
+                        
+                    </li>
+                
+            
+                
+                    <li class="setting-item">
+                        
+                            <label for="setting_port_number">Port number</label>
+                        
+
+                        
+                            
+                                <input type="number" id="setting_port_number" name="port_number" value="8080" step="1">
+                            
+                        
+                    </li>
+                
+            
+                
+            
+                
+            
+                
+                    <li class="setting-item">
+                        
+                            <label for="setting_proxy_images">Route images</label>
+                        
+
+                        
+                            <input type="checkbox" id="setting_proxy_images" name="proxy_images" checked>
+                        
+                    </li>
+                
+            
+            </ul>
+        
+            <h2>Interface</h2>
+            <ul class="settings-list">
+            
+                
+                    <li class="setting-item">
+                        
+                            <label for="setting_related_videos_mode">Related videos mode</label>
+                        
+
+                        
+                            
+                                <select id="setting_related_videos_mode" name="related_videos_mode">
+                                    
+                                        <option value="0" >Disabled</option>
+                                    
+                                        <option value="1" selected>Always shown</option>
+                                    
+                                        <option value="2" >Shown by clicking button</option>
+                                    
+                                </select>
+                            
+                        
+                    </li>
+                
+            
+                
+                    <li class="setting-item">
+                        
+                            <label for="setting_comments_mode">Comments mode</label>
+                        
+
+                        
+                            
+                                <select id="setting_comments_mode" name="comments_mode">
+                                    
+                                        <option value="0" >Disabled</option>
+                                    
+                                        <option value="1" selected>Always shown</option>
+                                    
+                                        <option value="2" >Shown by clicking button</option>
+                                    
+                                </select>
+                            
+                        
+                    </li>
+                
+            
+                
+                    <li class="setting-item">
+                        
+                            <label for="setting_enable_comment_avatars">Enable comment avatars</label>
+                        
+
+                        
+                            <input type="checkbox" id="setting_enable_comment_avatars" name="enable_comment_avatars" checked>
+                        
+                    </li>
+                
+            
+                
+                    <li class="setting-item">
+                        
+                            <label for="setting_theater_mode">Theater mode</label>
+                        
+
+                        
+                            <input type="checkbox" id="setting_theater_mode" name="theater_mode" checked>
+                        
+                    </li>
+                
+            
+                
+                    <li class="setting-item">
+                        
+                            <label for="setting_use_video_hotkeys">Enable video hotkeys</label>
+                        
+
+                        
+                            <input type="checkbox" id="setting_use_video_hotkeys" name="use_video_hotkeys" checked>
+                        
+                    </li>
+                
+            
+                
+                    <li class="setting-item">
+                        
+                            <label for="setting_video_player">Video player</label>
+                        
+
+                        
+                            
+                                <select id="setting_video_player" name="video_player">
+                                    
+                                        <option value="0" >Browser Default</option>
+                                    
+                                        <option value="1" selected>Plyr</option>
+                                    
+                                </select>
+                            
+                        
+                    </li>
+                
+            
+                
+                    <li class="setting-item">
+                        
+                            <label for="setting_use_comments_js">Enable comments.js</label>
+                        
+
+                        
+                            <input type="checkbox" id="setting_use_comments_js" name="use_comments_js" checked>
+                        
+                    </li>
+                
+            
+                
+                    <li class="setting-item">
+                        
+                            <label for="setting_theme">Theme</label>
+                        
+
+                        
+                            
+                                <select id="setting_theme" name="theme">
+                                    
+                                        <option value="0" selected>Light</option>
+                                    
+                                        <option value="1" >Gray</option>
+                                    
+                                        <option value="2" >Dark</option>
+                                    
+                                </select>
+                            
+                        
+                    </li>
+                
+            
+                
+                    <li class="setting-item">
+                        
+                            <label for="setting_font">Font</label>
+                        
+
+                        
+                            
+                                <select id="setting_font" name="font">
+                                    
+                                        <option value="0" >Browser default</option>
+                                    
+                                        <option value="1" selected>Arial</option>
+                                    
+                                        <option value="2" >Liberation Serif</option>
+                                    
+                                        <option value="3" >Verdana</option>
+                                    
+                                        <option value="4" >Tahoma</option>
+                                    
+                                </select>
+                            
+                        
+                    </li>
+                
+            
+                
+                    <li class="setting-item">
+                        
+                            <label for="setting_embed_page_mode">Enable embed page</label>
+                        
+
+                        
+                            <input type="checkbox" id="setting_embed_page_mode" name="embed_page_mode" checked>
+                        
+                    </li>
+                
+            
+            </ul>
+        
+            <h2>Playback</h2>
+            <ul class="settings-list">
+            
+                
+                    <li class="setting-item">
+                        
+                            <label for="setting_subtitles_mode">Default subtitles mode</label>
+                        
+
+                        
+                            
+                                <select id="setting_subtitles_mode" name="subtitles_mode">
+                                    
+                                        <option value="0" selected>Off</option>
+                                    
+                                        <option value="1" >Manually created only</option>
+                                    
+                                        <option value="2" >Automatic if manual unavailable</option>
+                                    
+                                </select>
+                            
+                        
+                    </li>
+                
+            
+                
+                    <li class="setting-item">
+                        
+                            <label for="setting_subtitles_language">Subtitles language</label>
+                        
+
+                        
+                            <input type="text" id="setting_subtitles_language" name="subtitles_language" value="en">
+                        
+                    </li>
+                
+            
+                
+                    <li class="setting-item">
+                        
+                            <label for="setting_default_volume">Default volume</label>
+                        
+
+                        
+                            
+                                <input type="number" id="setting_default_volume" name="default_volume" value="-1" min="-1" max="100">
+                            
+                        
+                    </li>
+                
+            
+                
+                    <li class="setting-item">
+                        
+                            <label for="setting_default_resolution">Default resolution</label>
+                        
+
+                        
+                            
+                                <select id="setting_default_resolution" name="default_resolution">
+                                    
+                                        <option value="144" >144p</option>
+                                    
+                                        <option value="240" >240p</option>
+                                    
+                                        <option value="360" >360p</option>
+                                    
+                                        <option value="480" >480p</option>
+                                    
+                                        <option value="720" selected>720p</option>
+                                    
+                                        <option value="1080" >1080p</option>
+                                    
+                                        <option value="1440" >1440p</option>
+                                    
+                                        <option value="2160" >2160p</option>
+                                    
+                                </select>
+                            
+                        
+                    </li>
+                
+            
+                
+                    <li class="setting-item">
+                        
+                            <label for="setting_autoplay_videos">Autoplay videos</label>
+                        
+
+                        
+                            <input type="checkbox" id="setting_autoplay_videos" name="autoplay_videos" >
+                        
+                    </li>
+                
+            
+                
+                    <li class="setting-item">
+                        
+                            <label for="setting_codec_rank_h264">H.264 Codec Ranking</label>
+                        
+
+                        
+                            
+                                <select id="setting_codec_rank_h264" name="codec_rank_h264">
+                                    
+                                        <option value="1" selected>#1</option>
+                                    
+                                        <option value="2" >#2</option>
+                                    
+                                        <option value="3" >#3</option>
+                                    
+                                </select>
+                            
+                        
+                    </li>
+                
+            
+                
+                    <li class="setting-item">
+                        
+                            <label for="setting_codec_rank_vp">VP8/VP9 Codec Ranking</label>
+                        
+
+                        
+                            
+                                <select id="setting_codec_rank_vp" name="codec_rank_vp">
+                                    
+                                        <option value="1" >#1</option>
+                                    
+                                        <option value="2" selected>#2</option>
+                                    
+                                        <option value="3" >#3</option>
+                                    
+                                </select>
+                            
+                        
+                    </li>
+                
+            
+                
+                    <li class="setting-item">
+                        
+                            <label for="setting_codec_rank_av1">AV1 Codec Ranking</label>
+                        
+
+                        
+                            
+                                <select id="setting_codec_rank_av1" name="codec_rank_av1">
+                                    
+                                        <option value="1" >#1</option>
+                                    
+                                        <option value="2" >#2</option>
+                                    
+                                        <option value="3" selected>#3</option>
+                                    
+                                </select>
+                            
+                        
+                    </li>
+                
+            
+                
+                    <li class="setting-item">
+                        
+                            <label for="setting_prefer_uni_sources">Use integrated sources</label>
+                        
+
+                        
+                            
+                                <select id="setting_prefer_uni_sources" name="prefer_uni_sources">
+                                    
+                                        <option value="0" >Prefer not</option>
+                                    
+                                        <option value="1" selected>Prefer</option>
+                                    
+                                        <option value="2" >Always</option>
+                                    
+                                </select>
+                            
+                        
+                    </li>
+                
+            
+                
+                    <li class="setting-item">
+                        
+                            <label for="setting_use_sponsorblock_js">Enable SponsorBlock</label>
+                        
+
+                        
+                            <input type="checkbox" id="setting_use_sponsorblock_js" name="use_sponsorblock_js" >
+                        
+                    </li>
+                
+            
+            </ul>
+        
+            <h2>Other</h2>
+            <ul class="settings-list">
+            
+                
+                    <li class="setting-item">
+                        
+                            <label for="setting_default_comment_sorting">Default comment sorting</label>
+                        
+
+                        
+                            
+                                <select id="setting_default_comment_sorting" name="default_comment_sorting">
+                                    
+                                        <option value="0" selected>Top</option>
+                                    
+                                        <option value="1" >Newest</option>
+                                    
+                                </select>
+                            
+                        
+                    </li>
+                
+            
+                
+                    <li class="setting-item">
+                        
+                            <label for="setting_autocheck_subscriptions">Autocheck subscriptions</label>
+                        
+
+                        
+                            <input type="checkbox" id="setting_autocheck_subscriptions" name="autocheck_subscriptions" >
+                        
+                    </li>
+                
+            
+                
+                    <li class="setting-item">
+                        
+                            <label for="setting_include_shorts_in_subscriptions">Include shorts in subscriptions</label>
+                        
+
+                        
+                            <input type="checkbox" id="setting_include_shorts_in_subscriptions" name="include_shorts_in_subscriptions" >
+                        
+                    </li>
+                
+            
+                
+                    <li class="setting-item">
+                        
+                            <label for="setting_include_shorts_in_channel">Include shorts in channel</label>
+                        
+
+                        
+                            <input type="checkbox" id="setting_include_shorts_in_channel" name="include_shorts_in_channel" checked>
+                        
+                    </li>
+
+            </ul>
+        
+        <input type="submit" value="Save settings">
+    </form>
+
+        </main>
+    </body>
+</html>
