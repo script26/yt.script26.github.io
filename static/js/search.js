@@ -23,4 +23,7 @@
 
 	// Call the function to execute scraping
 	scrapeYouTubeVideos();
+
+	// Testing
+	console.log("Testing and running");
 })();
